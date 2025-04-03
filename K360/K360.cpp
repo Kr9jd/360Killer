@@ -4,7 +4,7 @@
 #include "PoolParty.h"
 using namespace std;
 
-typedef int(__stdcall* FP_RtlAdjustPrivilege)(ULONG, BOOLEAN, BOOLEAN, PBOOLEAN);
+typedef int(__stdcall* FN_RtlAdjustPrivilege)(ULONG, BOOLEAN, BOOLEAN, PBOOLEAN);
 DWORD findProcess();
 BOOL enablePrivilege();
 
@@ -106,7 +106,7 @@ BOOL enablePrivilege()
         return FALSE;
     }
 
-    _RtlAdjustPrivilege = (FP_RtlAdjustPrivilege)GetProcAddress(hNtdll, "RtlAdjustPrivilege");
+    _RtlAdjustPrivilege = (FN_RtlAdjustPrivilege)GetProcAddress(hNtdll, "RtlAdjustPrivilege");
     if (_RtlAdjustPrivilege == nullptr) {
         FreeLibrary(hNtdll);
         cout << GetLastError() << endl;
