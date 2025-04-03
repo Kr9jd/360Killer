@@ -4,5 +4,5 @@
 #include <memory>
 #include <iostream>
 
-#include "Native.hpp"
+#include "Native.h"
 HANDLE HijackProcessHandle( HANDLE hProcess, DWORD dwDesiredAccess);
