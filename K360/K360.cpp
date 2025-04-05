@@ -1,4 +1,4 @@
-﻿#include <Windows.h>
+#include <Windows.h>
 #include <TlHelp32.h>
 #include <iostream>
 #include "PoolParty.h"
@@ -97,7 +97,7 @@ BOOL enablePrivilege()
     BOOLEAN ret;
     HMODULE hNtdll;
     TOKEN_PRIVILEGES token_priv;
-    FP_RtlAdjustPrivilege _RtlAdjustPrivilege;
+    FN_RtlAdjustPrivilege _RtlAdjustPrivilege;
     token_priv.PrivilegeCount = 1;
 
     hNtdll = LoadLibraryA("Ntdll.dll");
